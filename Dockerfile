@@ -9,4 +9,4 @@ RUN mkdir ./app
 COPY ./build/libs/*config-server*.jar ./app/config-server.jar
 WORKDIR ./app
 #CMD [sh -c "dockerize -wait tcp://database:3306 -timeout 300s -wait-retry-interval 30s"]
-ENTRYPOINT ["sh","-c","dockerize -wait tcp://database:3306 -timeout 300s -wait-retry-interval 30s java -jar database.jar --spring.profiles.active=dev"]
+ENTRYPOINT ["sh","-c","dockerize -wait tcp://database:3306 -timeout 300s -wait-retry-interval 30s java -jar config-server.jar --spring.profiles.active=dev"]
