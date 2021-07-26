@@ -3,15 +3,16 @@
  */
 
 plugins {
+    idea
     java
-    `maven-publish`
+    id("org.springframework.boot") version "2.5.3"
+    id("io.spring.dependency-management") version "1.0.9.RELEASE"
 }
+
 
 repositories {
     mavenLocal()
-    maven {
-        url = uri("https://repo.maven.apache.org/maven2/")
-    }
+    mavenCentral()
 
     maven {
         url = uri("https://maven.pkg.github.com/InstaCode/*")
@@ -23,10 +24,8 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-config-server:2.2.8.RELEASE")
     implementation("org.springframework.cloud:spring-cloud-starter-eureka:1.4.7.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-security:2.5.2")
-    implementation("io.rest-assured:rest-assured:4.4.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.2")
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.2")
+    testImplementation("org.junit:junit-bom:5.8.0-M1")
 }
 
 group = "io.instacode.automation"
@@ -34,11 +33,7 @@ version = "1.0-SNAPSHOT"
 description = "InstaCode Microservices Config Server"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
-publishing {
-    publications.create<MavenPublication>("maven") {
-        from(components["java"])
-    }
-}
+
 
 tasks.withType<JavaCompile>() {
     options.encoding = "UTF-8"
