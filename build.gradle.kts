@@ -6,13 +6,16 @@ plugins {
     idea
     java
     id("org.springframework.boot") version "2.5.3"
-    id("io.spring.dependency-management") version "1.0.9.RELEASE"
+    id("io.spring.dependency-management") version "1.0.10.RELEASE"
+    id("org.sonarqube") version "3.0"
+
 }
 
 
 repositories {
     mavenLocal()
     mavenCentral()
+    gradlePluginPortal()
 
     maven {
         url = uri("https://maven.pkg.github.com/InstaCode/*")
