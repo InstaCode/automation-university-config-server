@@ -1,0 +1,21 @@
+eureka:
+    client:
+        region: default
+        registryFetchIntervalSeconds: 5
+        serviceUrl:
+            defaultZone: http://discUser:discPassword@localhost:8082/eureka/
+security:
+    user:
+        name: configUser
+        password: configPassword
+        role: SYSTEM
+server:
+    port: 8081
+spring:
+    application:
+        name: config
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/InstaCode/automation-university-config-server
