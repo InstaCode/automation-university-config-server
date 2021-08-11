@@ -4,10 +4,10 @@ metadata:
   name: automation-university-config-server
 build:
   artifacts:
-  - image: learnk8s/knote-java
-    context: .
-    docker: {}
+    - image: automationu/config-server
+      context: .
+      docker: {}
 deploy:
   kubectl:
     manifests:
-    - kube/config-server-deployment.yaml
+      - kube/config-server-deployment.yaml
