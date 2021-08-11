@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta19
+kind: Config
+metadata:
+  name: automation-university-config-server
+build:
+  artifacts:
+  - image: learnk8s/knote-java
+    context: .
+    docker: {}
+deploy:
+  kubectl:
+    manifests:
+    - kube/config-server-deployment.yaml

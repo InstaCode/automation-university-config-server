@@ -14,10 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: learnk8s/knote-java:1.0.0
+          image: automationu/config-server
           ports:
-            - containerPort: 8080
-          env:
-            - name: MONGO_URL
-              value: mongodb://mongo:27017/dev
+            - containerPort: 8081
           imagePullPolicy: Always
